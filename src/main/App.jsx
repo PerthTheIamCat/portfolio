@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { Routes, Route, BrowserRouter} from 'react-router-dom'
 import './App.css'
-import Aboutpage from './Aboutpage'
-import Home from './Home'
+import Aboutpage from '../Aboutpage'
+import Home from '../Home'
 
 function App() {
 

@@ -1,12 +1,37 @@
-import { Link } from "react-router-dom"
-
+import { Link, useNavigate} from "react-router-dom"
+import Sidebar from "./Sidebar"
+import { useState } from "react"
 const Navbar = () => {
+    const [IsOpen, setIsOpen] = useState(false)
+    const navigate = useNavigate()
 
-    return (<div className="flex flex-row justify-center gap-10">
-        <Link to="/"><h1>Home</h1></Link>
-        <Link to="/about"><h1>about</h1></Link>
-        <h1></h1>
-        <h1></h1>
-    </div>)
+    const clickHandle = () => {
+        setIsOpen(false) 
+        if (!IsOpen) {
+            console.log("reset successfully")
+        }
+        navigate("/about")
+    }
+    
+
+return (
+    <>
+    <div className="bg-white bg-opacity-50 py-2">
+        <div className="flex flex-row pl-5 gap-10">
+            <Link to="/"><h1>Home</h1></Link>
+            <h1 onClick={clickHandle}>about</h1>
+            <div className="fixed mx-[93vw] z-10">
+                <button onClick={()=>{setIsOpen(!IsOpen)}}>profile</button>
+            </div>
+        </div>
+        <div className="flex">
+                
+                <Sidebar open={IsOpen}/>
+        </div>
+        
+    </div>
+    
+    </>
+    )
 }
 export default Navbar
