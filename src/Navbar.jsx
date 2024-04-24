@@ -7,17 +7,16 @@ const Navbar = () => {
     const navigate = useNavigate()
 
     const clickHandle = () => {
-        setIsOpen(false) 
+        setIsOpen(false);
         if (!IsOpen) {
             console.log("reset successfully")
         }
         navigate("/about")
     }
     
-    
 return (
     <>
-    <div className="sticky top-0 bg-white bg-opacity-50 py-2">
+    <div className="sticky top-0 bg-white bg-opacity-50 py-2" on>
         <div className="grid grid-cols-2 flex-row pl-5 gap-10">
             <div className="flex flex-row gap-10">
                 <Link to="/"><h1>Home</h1></Link>
@@ -25,12 +24,11 @@ return (
             </div>
             <div className="sticky">
                 <div className="flex justify-end pr-5">
-                    <button onClick={()=>{setIsOpen(!IsOpen)}}>profile</button>
+                    <button onMouseEnter={()=>{setIsOpen(true)}} onClick={()=>{setIsOpen(!IsOpen)}}>profile</button>
                 </div>
             </div>
         </div>
-        <div className="flex">
-                
+        <div className="flex" onMouseLeave={()=>{setIsOpen(false)}}>
                 <Sidebar open={IsOpen}/>
         </div>
         
